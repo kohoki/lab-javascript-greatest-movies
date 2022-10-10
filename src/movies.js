@@ -23,8 +23,9 @@ function scoresAverage(moviesArray) {
     }
     let counter = 0;
     let newArray = moviesArray.map(movie => {
-      if (movie.score === undefined)
+      if (movie.score === "" || movie.score === undefined)
       {
+        counter++;
         return 0;
       }
       counter++;
@@ -32,6 +33,7 @@ function scoresAverage(moviesArray) {
     }).reduce((accumulator, currentValue) => accumulator + currentValue);
     return Math.round(((newArray/counter) + Number.EPSILON) * 100) / 100;
   }
+
 // Iteration 4: Drama movies - Get the average of Drama Movies
 function dramaMoviesScore(moviesArray) {}
 
